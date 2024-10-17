@@ -1,0 +1,555 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+    padding: 0; 
+}
+/* ------------------- Header ----------------------- */
+header{
+    position: fixed;
+    width: 100%;
+    height: 3%;
+    background-color: #fff;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+    box-shadow: 0 5px 8px rgb(63 63 63);
+    z-index: 1000;
+
+    /*Remove text blinker*/
+    cursor: default;
+    user-select: none;
+}
+
+header img{
+    height: 35px; 
+    margin-right: auto;
+    padding-left: 5%;
+    transition: height 0.3s ease;
+    display: flex;
+}
+
+@media only screen and (max-width: 800px) {
+    header img {
+        height: 25px;  
+    }
+}
+
+.hamburger-button {
+    display: none;
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    padding: 15px;
+    font-size: 24px;
+    cursor: pointer;
+ }
+
+ @media only screen and (max-width: 844px) {
+    .hamburger-button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        padding-right: 25px;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .line {
+        fill: none;
+        stroke:#474747;
+        stroke-width: 6;
+        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+          stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .line1 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+      }
+      .line2 {
+        stroke-dasharray: 60 60;
+        stroke-width: 6;
+      }
+      .line3 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+      }
+      .opened .line1 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+      }
+      .opened .line2 {
+        stroke-dasharray: 1 60;
+        stroke-dashoffset: -30;
+        stroke-width: 6;
+      }
+      .opened .line3 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+      }
+
+      .dropdown {
+        position: absolute;
+        top: 50%;
+        right: 0;
+
+      }
+      
+}
+
+nav {
+    position: relative; 
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: right;
+    position: relative; 
+}
+
+nav li::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    height: 60%; 
+    width: 1px; 
+    background-color: rgb(221, 221, 221); 
+}
+
+nav ul li:first-child::after {
+    display: none; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    display: block;
+    color: rgb(74, 74, 74);
+    padding: 11px 45px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    text-align: center;
+    font-size: 15px;
+    transition: color 0.3s ease, transform 0.8s ease, font-size 0.3s ease, padding 0.3s ease;
+}
+
+
+@media only screen and (max-width: 844px) {
+    nav ul li a {
+        display: none;
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+}
+
+
+nav ul li a:hover {
+    color: rgb(43, 167, 156);
+    transform: scale(1.3);
+}
+
+/* ------------------- TOP BAR / DROP DOWN MENU ----------------------- */
+    
+.bottom-bar{
+    padding-top: 10px;
+    position: fixed;
+    top: 4%;
+    height: auto;
+    width: 100%;
+    background-color: rgb(43, 167, 156);
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 6px 6px rgba(58, 58, 58, 0.677);
+    transition: all 0.9s ease;
+    z-index: 1;  
+}
+
+
+.bottom-bar ul{
+    padding: 20px;
+    list-style-type: none;
+    overflow: hidden;
+
+}
+
+.bottom-bar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.bottom-bar li {
+    float: center;
+    position: relative; 
+}
+
+
+.bottom-bar ul li a {
+    text-decoration: none;
+    display: block;
+    color: rgb(255, 255, 255);
+    padding: 25px 45px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.8s ease, font-size 0.3s ease, padding 0.3s ease;
+}
+
+.bottom-bar ul li a:hover {
+    color: rgb(43, 167, 156);
+    transform: scale(1.3);
+}
+
+@media only screen and (min-width: 844px) {
+    .bottom-bar ul{
+        display: none;
+    }
+}
+
+/* ------------------- SCROLL BUTTON ----------------------- */
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 65px;
+    right: 15px;
+    z-index: 9999;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: rgb(43, 167, 156);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 11.5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgb(33, 33, 33);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+/* ------------------- BACKGROUND ----------------------- */
+
+.background{
+    background-size: cover; 
+    overflow: hidden;
+     
+}
+
+.flex{
+	display: flex;
+	flex: content;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+}
+
+#video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover; 
+    z-index: -1; 
+    filter: brightness(130%);
+}
+    
+.background-overlay {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: rgba(113 113 113 / 50%);
+    border-bottom: 13px solid #2ba79c;
+}
+
+.background-overlay h1{
+    padding-top: 20%;
+    padding-left: 3%;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 120px;
+    margin: 0;
+    transition: font-size 0.8s ease;
+    cursor: default;
+    user-select: none;
+    animation: fadeIn 2s;
+    -webkit-font-smoothing: antialiased;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@media only screen and (max-width: 860px) {
+    .background-overlay h1 {
+        font-size: 55px;
+        padding-top: 20rem;
+        padding-right: 10px;
+        
+    }
+}
+
+
+.background-overlay p{
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 35px;
+    padding-left: 3%;
+    margin: 0;
+    transition: font-size 0.8s ease;
+    cursor: default;
+    user-select: none;
+    animation: fadeIn 2s;
+    -webkit-animation: fadeIn 2s;
+    -moz-animation: fadeIn 2s;
+    -o-animation: fadeIn 2s;
+    -ms-animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+@media only screen and (max-width: 860px) {
+    .background-overlay p {
+        font-size: 20px;
+        
+    }
+}
+
+
+/*------------------ About Us -------------------------*/
+
+
+
+/* ------------------- Form ----------------------- */
+
+.formBox {
+    margin: 0;
+    padding: 0;
+    padding: 20px;
+    min-height: 55vh;
+    cursor: default;
+    user-select: none;
+    background: #fdfdfd;
+    position: relative; 
+}
+
+.formText {
+    width: 40%;
+    position: absolute; 
+    left: 180px; 
+    top: 240px; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    color: rgb(92, 92, 92);
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .formText {
+        position: relative;
+        top: 0; 
+        left: 0; 
+        width: 90%; 
+        margin: 0 auto; 
+        font-size: 16px; 
+    }
+}
+
+
+.formBox h1{
+    margin-left: 6%;
+    margin-right: 6%;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-size: 40px;
+    padding-top: 20px ;
+  }
+
+
+
+.form-image img{
+    height: 120px; 
+    margin-right: auto;
+    padding-left: 5%;
+    transition: height 0.3s ease;
+    display: flex; 
+}
+
+@media only screen and (max-width: 600px) {
+    .form-image img{
+        height: 65px; 
+    }
+}
+
+.container{
+    width: 30%;
+    margin-left: auto;
+    margin-right: 10%;
+    text-align: left; 
+}
+
+@media only screen and (max-width: 1200px) {
+    .container {
+        margin: 8%; 
+        width: 85%;
+    }
+}
+
+.form-group{
+    margin-top: 18px;
+    font-size: 15px;
+    color: rgb(92, 92, 92);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-weight: bold;
+    z-index: 100000;
+}
+
+.form-group input,
+.form-group textarea{
+    width: calc(100% - 12px); 
+    padding: 6px;
+    font-size: 20px;
+    resize: none;
+    border: none;
+    border-bottom: 1px solid #474747; 
+    background-color: transparent; 
+    outline: none; 
+    color: black; 
+    z-index: 10000;
+}
+
+.form-group:last-of-type input,
+.form-group:last-of-type textarea {
+    background-color: #fdfdfd; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-bottom-color: rgb(43, 167, 156); 
+}
+
+button[type="submit"],
+button[type="reset"]{
+    width: 25%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    color: rgb(92, 92, 92);
+    background-color: transparent;
+    text-align: center;
+    border-bottom: 1px solid #474747;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: .3s ease background-color;
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover{
+    background-color: rgb(43, 167, 156);
+}
+
+@media only screen and (max-width: 1200px) {
+    button[type="submit"],
+    button[type="reset"] {
+        width: 38%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    button[type="submit"],
+    button[type="reset"] {
+        width: 45%;
+    }
+}
+
+/* ------------------- FOOTER ----------------------- */
+  .footer {
+    position: relative;
+    top: 0; 
+    left: 0;
+    background-color: rgb(43, 167, 156);
+    color: black;
+    font-family: Ariel;
+    font-size: 15px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    justify-content: center;
+    display: flex;
+    padding: 0;
+    margin: 0; 
+
+    cursor: default;
+    user-select: none;
+  }
+ 
+  @media only screen and (max-width: 600px) {
+    .footer {
+        vertical-align: middle;
+        font-size: 15px;
+    }
+}
+

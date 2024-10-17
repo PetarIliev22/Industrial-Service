@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="..." crossorigin="anonymous">
+
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <link rel="stylesheet" href="style.css">   
+    <title>ИндустриаЛ СЕРВИЗ @2020</title>
+</head>
+  <!-- HEADER -->
+
+<header>
+
+  <img src="logo.png">
+  <button class="hamburger-button" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+    <svg width="30" height="30" viewBox="0 0 100 100">
+      <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+      <path class="line line2" d="M 20,50 H 80" />
+      <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+    </svg>
+  </button>
+
+        <nav>
+          <ul>
+            <li><a href="#background" id="home">Начало</a></li>
+            <li><a href="index2.html" id="store">Магазин</a></li>
+            <li><a href="#container" id="contact">Контакти</a></li>
+            <li><a href="index2.html" id="forUs">За нас</a></li>
+          </ul>
+        </nav>
+
+</header>
+  <!----------------------------------SCROLL BUTTON --------------------------------------->
+
+<body>
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
+  
+    <script>
+      
+      let mybutton = document.getElementById("myBtn");
+      window.onscroll = function() {scrollFunction()};
+      
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
+      
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+      </script>
+  <!---------------------------------- BACKGROUND ----------------------------------------->
+
+  <div class="background" id="background">
+    <div class="background-overlay">
+      <video autoplay loop muted playsinline id="video-bg">
+        <source src="video.mp4" type="video/webm"/></video>
+
+      <div class="bottom-bar" style="display: none">
+        <ul>
+          <li><a href="#container" id="contact">Контакти</a></li>
+          <li><a href="#" id="forUs">За нас</a></li>
+          <li><a href="#" id="store">Магазин</a></li>
+          <li><a href="#background" id="home">Начало</a></li>
+        </ul>
+        <script>
+          
+            document.querySelector('.hamburger-button').addEventListener('click', function() {
+            document.querySelector('.bottom-bar').style.display = 
+            (document.querySelector('.bottom-bar').style.display == 'none') ? 'block' : 'none';
+            });
+          
+            document.querySelector('.bottom-bar ').addEventListener('click', function() {
+            document.querySelector('.bottom-bar ').style.display = 
+            (document.querySelector('.bottom-bar').style.display == 'block') ? 'none' : 'block';
+            });
+          
+        </script>
+      </div>
+      
+    <!---------------------------------- BACKGROUND text ----------------------------------------->
+
+	  <div class="flex">
+        <h1 >ИндустриаЛ СЕРВИЗ | <span style="color: rgb(43, 167, 156)">2020</spam></h1>
+        <p><i>Индустриална сила за вашият успех за утрешният ден</i></p>
+		</div>
+    </div>
+  </div>
+
+  <!-- ABOUT US -->
+
+  
+
+  <!-- FORM -->
+
+  <div class="formBox">
+       <h1><span style="color: rgb(92, 92, 92); font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: bold;">Контакти</span></h1>
+        
+    <div class="formText">
+      <div class="form-image">
+        <img src="logo.png">
+        </div>
+        <p><i>За повече информация относно услиги и закупуване на части може да се свържите с нас тук.<br></i></p>
+        <hr>
+      <ul>
+        <li>телефон за връзка:&nbsp <b>+359 888 013 193</b></li>
+        <li>адрес:&nbsp <b>РУСЕ, Възраждане</b></li>
+    </div>
+
+        <div class="container" id="container">
+            <form action="https://formspree.io/f/mpzkvrra" method="post">
+              <div class="form-group">
+                <label for="firstname">Име</label>
+                <input type="text" id="FIRSTNAME" name="firstname">
+              
+                <label for="lastname">Фамилия</label>
+                <input type="text" id="LASTNAME" name="lastname">
+              
+                <label for="email">Имейл</label>
+                <input type="text" id="EMAIL" name="email">
+              
+                <label for="message">Запитване</label>
+                <textarea type="text" id="MESSAGE" name="message" cols="30" rows="10"></textarea>
+              
+                <button type="submit">ИЗПРАТИ</button>
+                <button onclick="return myFunction();" type="reset">ИЗЧИСТИ</button>
+              
+                <script>
+                  function myFunction() {
+                    let confirmed = confirm("Наистина ли искате да изчистите формуляра?");
+                    return confirmed;
+                  }
+                </script>
+              </div>
+            </form>
+        </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+    
+<footer class="footer" id="footer">
+    <p>&copy;2020 ИндустриаЛ СЕРВИЗ. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+ 
